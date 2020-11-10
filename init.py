@@ -75,17 +75,8 @@ def init():
 
 def create_domain(domains = []):
     conf_dir = directories['nginx.conf.d'] 
-    composer_dir = directories['docker-composer'] +  "/" +domains[0]
-    accesslogfile = directories['nginx.log'] + "/access-" + domains[0] + ".log"
-    if not path.isdir(composer_dir):
-        mkdir(composer_dir)
-        #create a default html directory
-        mkdir(composer_dir + "/html")
-        shutil.copy2(templates['index.html'], composer_dir + "/html/index.html")
-        #create a ssl directory (private certifications)
-        mkdir(composer_dir + "/ssl")
-        print("Configuration directory created " + composer_dir)
-    pass
+    composer_dir = directories['docker-composer'] +  "/" + domains[0]
+    logdir= directories["nginx.log"] + "/" + domains[0]
 
     default_config = conf_dir + "/" + domains[0] + ".conf"
     try:
@@ -102,7 +93,16 @@ def create_domain(domains = []):
         f = open(default_config,'w')
         f.write(data)
         f.close
-        print(data)
+
+    if not path.isdir(composer_dir):
+        mkdir(composer_dir)
+        #create a default html directory
+        mkdir(composer_dir + "/html")
+        shutil.copy2(templates['index.html'], composer_dir + "/html/index.html")
+
+    if not path.isdir(logdir):
+        mkdir(logdir)
+
 
 if __name__ == "__main__":
 
