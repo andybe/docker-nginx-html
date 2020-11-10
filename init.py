@@ -9,8 +9,6 @@ import shutil
 # /var/www/ -> main docker-compose.yml
 # /var/www/example.domain/ (docker-compose.yml)
 # /var/www/example.domain/html
-# /var/www/example.domain/ssl (private certifications)
-# /etc/letsencrypt 
 
 directories = { 
     'letsencrypt': '/etc/letsencrypt',
