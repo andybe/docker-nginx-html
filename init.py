@@ -10,9 +10,7 @@ import shutil
 # /var/www/example.domain/ (docker-compose.yml)
 # /var/www/example.domain/html
 
-directories = { 
-    'letsencrypt': '/etc/letsencrypt',
-    'letsencrypt.log': '/var/log/letsencrypt',
+directories = {
     'nginx' : '/etc/nginx',
     'nginx.conf.d' : '/etc/nginx/conf.d',
     'www' : '/var/www',
