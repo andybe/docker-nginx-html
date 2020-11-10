@@ -1,5 +1,5 @@
 #linked directories (/var/nginx/conf.d, /var/www)
-conf.d	
+conf.d
 www
 # linked composer-file -> /var/www/
 docker-compose.yml
