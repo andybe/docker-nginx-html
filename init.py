@@ -76,7 +76,7 @@ def init():
 def create_domain(domains = []):
     conf_dir = directories['nginx.conf.d'] 
     composer_dir = directories['docker-composer'] +  "/" + domains[0]
-    logdir= directories["nginx.log"] + "/" + domains[0]
+    log_dir= directories["nginx.log"] + "/" + domains[0]
 
     default_config = conf_dir + "/" + domains[0] + ".conf"
     try:
@@ -100,8 +100,8 @@ def create_domain(domains = []):
         mkdir(composer_dir + "/html")
         shutil.copy2(templates['index.html'], composer_dir + "/html/index.html")
 
-    if not path.isdir(logdir):
-        mkdir(logdir)
+    if not path.isdir(log_dir):
+        mkdir(log_dir)
 
 
 if __name__ == "__main__":
@@ -109,7 +109,7 @@ if __name__ == "__main__":
     if len(sys.argv)<2:
         help()
         quit()
-    
+
     do_check()
     l = sys.argv
     del l[0]
